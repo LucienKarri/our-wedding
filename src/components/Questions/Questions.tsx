@@ -61,7 +61,7 @@ export const Questions = () => {
     <form onSubmit={handleSubmit}>
       <SectionContainer>
         <Typography align="center" variant="h5">
-          {`Пожалуйста, ${guest.family ? "заполните" : guest.sex === "male" ? "заполни" : "заполни"} анкету ниже - это поможет нам сделать праздник
+          {`Пожалуйста, ${guest.family === "true" ? "заполните" : guest.sex === "male" ? "заполни" : "заполни"} анкету ниже - это поможет нам сделать праздник
           более уютным`}
         </Typography>
         <Typography align="center" variant="h5">
@@ -145,7 +145,7 @@ export const Questions = () => {
           </Box>
         </Box>
         <Typography align="center" variant="h5">
-          {`${guest.family ? "Планируете" : guest.sex === "male" ? "Планируешь" : "Планируешь"} ли ${guest.family ? "вы" : guest.sex === "male" ? "ты" : "ты"} присутствовать?`}
+          {`${guest.family === "true" ? "Планируете" : guest.sex === "male" ? "Планируешь" : "Планируешь"} ли ${guest.family === "true" ? "вы" : guest.sex === "male" ? "ты" : "ты"} присутствовать?`}
         </Typography>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <RadioGroup
@@ -156,19 +156,19 @@ export const Questions = () => {
           >
             <FormControlLabel
               control={<Radio />}
-              label={`да, ${guest.family ? "мы" : guest.sex === "male" ? "я" : "я"} обязательно ${guest.family ? "будем" : guest.sex === "male" ? "буду" : "буду"}!`}
+              label={`да, ${guest.family === "true" ? "мы" : guest.sex === "male" ? "я" : "я"} обязательно ${guest.family === "true" ? "будем" : guest.sex === "male" ? "буду" : "буду"}!`}
               value="true"
             />
             <FormControlLabel
               control={<Radio />}
-              label={`нет, к сожалению ${guest.family ? "мы" : guest.sex === "male" ? "я" : "я"} не ${guest.family ? "сможем" : guest.sex === "male" ? "смогу" : "смогу"} посетить мероприятие, но мысленно ${guest.family ? "отпразднуем" : guest.sex === "male" ? "отпраздную" : "отпраздную"} с вами этот день`}
+              label={`нет, к сожалению ${guest.family === "true" ? "мы" : guest.sex === "male" ? "я" : "я"} не ${guest.family === "true" ? "сможем" : guest.sex === "male" ? "смогу" : "смогу"} посетить мероприятие, но мысленно ${guest.family === "true" ? "отпразднуем" : guest.sex === "male" ? "отпраздную" : "отпраздную"} с вами этот день`}
               value="false"
             />
             {errors.visit && <FormHelperText>{errors.visit}</FormHelperText>}
           </RadioGroup>
         </Box>
         <Typography align="center" variant="h5">
-          {`${guest.family ? "Расскажите" : guest.sex === "male" ? "Расскажи" : "Расскажи"} нам, если вдруг ${guest.family ? "кто-то из вас будет отсутствовать" : guest.sex === "male" ? "ты будешь не один" : "ты будешь не одна"}, или просто ${guest.family ? "добавьте" : guest.sex === "male" ? "добавь" : "добавь"} чего не хватило в анкете`}
+          {`${guest.family === "true" ? "Расскажите" : guest.sex === "male" ? "Расскажи" : "Расскажи"} нам, если вдруг ${guest.family === "true" ? "кто-то из вас будет отсутствовать" : guest.sex === "male" ? "ты будешь не один" : "ты будешь не одна"}, или просто ${guest.family === "true" ? "добавьте" : guest.sex === "male" ? "добавь" : "добавь"} чего не хватило в анкете`}
         </Typography>
         <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
           <TextField

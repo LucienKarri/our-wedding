@@ -1,4 +1,3 @@
-export { PreferencesForm } from "./PreferencesForm";
 export * from "./AppLayout";
 export * from "./Header";
 export * from "./MainContent";

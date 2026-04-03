@@ -70,7 +70,7 @@ export const TimingComponent = () => {
         </Box>
       </Box>
       <Typography variant="h5" align="center">
-        {`Мы не хотим обременять ${guest.family ? "вас" : guest.sex === "male" ? "тебя" : "тебя"} выбором подарка, поэтому будем рады подарку
+        {`Мы не хотим обременять ${guest.family === "true" ? "вас" : guest.sex === "male" ? "тебя" : "тебя"} выбором подарка, поэтому будем рады подарку
         в конверте`}
       </Typography>
     </SectionContainer>

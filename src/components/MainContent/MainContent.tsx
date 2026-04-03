@@ -11,7 +11,7 @@ export const MainContent = () => {
   return (
     <SectionContainer>
       <Typography sx={{ textAlign: "center" }} variant="h5">
-        {`${guest.family ? "Дорогие" : guest.sex === "male" ? "Дорогой" : "Дорогая"} ${guest.name}, мы приглашаем ${guest.family ? "вас" : guest.sex === "male" ? "тебя" : "тебя"} разделить наше свадебное
+        {`${guest.family === "true" ? "Дорогие" : guest.sex === "male" ? "Дорогой" : "Дорогая"} ${guest.name}, мы приглашаем ${guest.family === "true" ? "вас" : guest.sex === "male" ? "тебя" : "тебя"} разделить наше свадебное
         торжество вместе, которое состоится`}
       </Typography>
       <Typography color="primary" variant="h4">
