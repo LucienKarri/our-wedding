@@ -24,9 +24,10 @@ export async function POST(request) {
     const other = String(body?.other || "").trim();
     const guest = String(body?.guest || "").trim();
     const alcoholArr = [vodka, visky, whiteVine, redVine, jin, rom, bableVine];
+    const pozivnoy = String(body?.pozivnoy || "").trim();
 
     const text = `
-        <b>${guest}</b>
+        <b>${guest} (${pozivnoy})</b>
         <b>Собираются посетить свадьбу</b>: ${visit ? "да" : "нет"}
         <b>Выбранный алкоголь</b>: ${alcoholArr
           .filter((item) => !!item.value)

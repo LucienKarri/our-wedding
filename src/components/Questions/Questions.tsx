@@ -39,6 +39,7 @@ export const Questions = () => {
         ...values,
         visit: values.visit === "true",
         guest: guest.name,
+        pozivnoy: guest.pozivnoy,
       };
       const res = await fetch("/api/send-message", {
         method: "POST",

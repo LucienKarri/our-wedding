@@ -13,6 +13,7 @@ const UserInfoContext = createContext<{
   name: string;
   sex: string | null;
   family: string;
+  pozivnoy: string;
 } | null>(null);
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -33,6 +34,7 @@ export const UserInfoProvider: FC<PropsWithChildren> = ({ children }) => {
     name: string;
     sex: string | null;
     family: string;
+    pozivnoy: string;
   } | null>(null);
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export const UserInfoProvider: FC<PropsWithChildren> = ({ children }) => {
         throw new Error(data.error || "Ошибка загрузки");
       }
 
-      setData(data.guest);
+      setData({ ...data.guest, pozivnoy: searchParams.get("pozivnoy") });
       return data.guest;
     }
     loadGuest();
