@@ -37,7 +37,9 @@ export const UserInfoProvider: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     async function loadGuest() {
-      const res = await fetch(`/api/guest?token=${searchParams.get("token")}`);
+      const res = await fetch(
+        `/api/guest?pozivnoy=${searchParams.get("pozivnoy")}`,
+      );
       const data = await res.json();
 
       if (!res.ok) {

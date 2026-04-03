@@ -3,16 +3,16 @@ import guests from "../data/guests.js";
 export async function GET(request) {
   console.log("ddd");
   const { searchParams } = new URL(request.url);
-  const token = searchParams.get("token");
+  const pozivnoy = searchParams.get("pozivnoy");
 
-  if (!token) {
+  if (!pozivnoy) {
     return Response.json(
-      { ok: false, error: "Token is required" },
+      { ok: false, error: "pozivnoy is required" },
       { status: 400 },
     );
   }
 
-  const guest = guests.find((item) => item.token === token);
+  const guest = guests.find((item) => item.pozivnoy === pozivnoy);
 
   if (!guest) {
     return Response.json(
