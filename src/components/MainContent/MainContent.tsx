@@ -4,13 +4,15 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import "dayjs/locale/ru"; // Import the Russian locale
 import { SectionContainer } from "../SectionContainer";
+import { useUserInfo } from "../../contexts";
 
 export const MainContent = () => {
+  const guest = useUserInfo();
   return (
     <SectionContainer>
       <Typography sx={{ textAlign: "center" }} variant="h5">
-        Дорогие Карина и Дима, мы приглашаем вас разделить наше свадебное
-        торжество вместе, которое состоится
+        {`${guest.family ? "Дорогие" : guest.sex === "male" ? "Дорогой" : "Дорогая"} ${guest.name}, мы приглашаем ${guest.family ? "вас" : guest.sex === "male" ? "тебя" : "тебя"} разделить наше свадебное
+        торжество вместе, которое состоится`}
       </Typography>
       <Typography color="primary" variant="h4">
         04.06.2026

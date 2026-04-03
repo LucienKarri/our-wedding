@@ -14,7 +14,11 @@ export const LocationComponent = () => {
           style={{ display: "block", borderRadius: "4px", maxWidth: "100%" }}
         />
       </Paper>
-      <Button variant="contained" fullWidth>
+      <Button
+        variant="contained"
+        fullWidth
+        href="https://maps.yandex.ru/?ll=58.480695%2C51.236319&z=18&mode=whatshere&whatshere[point]=58.480555%2C51.236110&whatshere[zoom]=16"
+      >
         Посмотреть на картах
       </Button>
     </SectionContainer>

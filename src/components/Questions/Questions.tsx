@@ -12,12 +12,14 @@ import {
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { SectionContainer } from "../SectionContainer";
+import { useUserInfo } from "../../contexts";
 
 const validationSchema = yup.object({
   visit: yup.string().required("это поле очень важно для нас"),
 });
 
 export const Questions = () => {
+  const guest = useUserInfo();
   const { handleSubmit, values, handleChange, errors } = useFormik({
     initialValues: {
       vodka: false,
@@ -33,9 +35,11 @@ export const Questions = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      // console.log("err", errors);
-      const data = { ...values, visit: values.visit === "true" };
-      // console.log("SUBMIT!", data);
+      const data = {
+        ...values,
+        visit: values.visit === "true",
+        guest: guest.name,
+      };
       const res = await fetch("/api/send-message", {
         method: "POST",
         headers: {
@@ -57,8 +61,11 @@ export const Questions = () => {
     <form onSubmit={handleSubmit}>
       <SectionContainer>
         <Typography align="center" variant="h5">
-          Пожалуйста, заполните анкету ниже - это поможет нам сделать праздник
-          более уютным
+          {`Пожалуйста, ${guest.family ? "заполните" : guest.sex === "male" ? "заполни" : "заполни"} анкету ниже - это поможет нам сделать праздник
+          более уютным`}
+        </Typography>
+        <Typography align="center" variant="h5">
+          Какой алкоголь предпочитаете?
         </Typography>
         <Box
           sx={{
@@ -138,7 +145,7 @@ export const Questions = () => {
           </Box>
         </Box>
         <Typography align="center" variant="h5">
-          Планируете ли вы присутствовать?
+          {`${guest.family ? "Планируете" : guest.sex === "male" ? "Планируешь" : "Планируешь"} ли ${guest.family ? "вы" : guest.sex === "male" ? "ты" : "ты"} присутствовать?`}
         </Typography>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <RadioGroup
@@ -149,19 +156,19 @@ export const Questions = () => {
           >
             <FormControlLabel
               control={<Radio />}
-              label="да, мы обязательно будем!"
+              label={`да, ${guest.family ? "мы" : guest.sex === "male" ? "я" : "я"} обязательно ${guest.family ? "будем" : guest.sex === "male" ? "буду" : "буду"}!`}
               value="true"
             />
             <FormControlLabel
               control={<Radio />}
-              label="нет, к сожалению мы не сможем посетить мероприятие, но мысленно отпразднуем с вами этот день"
+              label={`нет, к сожалению ${guest.family ? "мы" : guest.sex === "male" ? "я" : "я"} не ${guest.family ? "сможем" : guest.sex === "male" ? "смогу" : "смогу"} посетить мероприятие, но мысленно ${guest.family ? "отпразднуем" : guest.sex === "male" ? "отпраздную" : "отпраздную"} с вами этот день`}
               value="false"
             />
             {errors.visit && <FormHelperText>{errors.visit}</FormHelperText>}
           </RadioGroup>
         </Box>
         <Typography align="center" variant="h5">
-          На случай, если анкеты не хватило
+          {`${guest.family ? "Расскажите" : guest.sex === "male" ? "Расскажи" : "Расскажи"} нам, если вдруг ${guest.family ? "кто-то из вас будет отсутствовать" : guest.sex === "male" ? "ты будешь не один" : "ты будешь не одна"}, или просто ${guest.family ? "добавьте" : guest.sex === "male" ? "добавь" : "добавь"} чего не хватило в анкете`}
         </Typography>
         <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
           <TextField
@@ -169,7 +176,7 @@ export const Questions = () => {
             onChange={handleChange}
             value={values.other}
             multiline
-            placeholder="Здесь вы можете оставить для нас послание или внести уточнения"
+            placeholder="Рассказывать сюда!"
             rows={4}
           />
         </Box>

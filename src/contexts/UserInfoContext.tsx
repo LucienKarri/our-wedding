@@ -6,7 +6,11 @@ import {
 } from "react";
 import { useSearchParams } from "react-router";
 
-const UserInfoContext = createContext<string | null>(null);
+const UserInfoContext = createContext<{
+  name: string;
+  sex: string | null;
+  family: string;
+} | null>(null);
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useUserInfo = () => {
@@ -20,12 +24,23 @@ export const useUserInfo = () => {
 };
 
 export const UserInfoProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [searchParams] = useSearchParams({ guestName: "Карина и Дима" });
+  const [searchParams] = useSearchParams({
+    name: "Карина и Дима",
+    family: "true",
+  });
 
-  const guestName = searchParams.get("guestName");
+  const value: {
+    name: string;
+    sex: string | null;
+    family: string;
+  } = {
+    name: searchParams.get("name") || "",
+    sex: searchParams.get("sex") || null,
+    family: searchParams.get("family") || "",
+  };
 
   return (
-    <UserInfoContext.Provider value={guestName}>
+    <UserInfoContext.Provider value={value}>
       {children}
     </UserInfoContext.Provider>
   );

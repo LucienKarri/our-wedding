@@ -1,8 +1,10 @@
 import { Paper, Typography } from "@mui/material";
 import { SectionContainer } from "../SectionContainer";
 import paletteImg from "../../assets/palette.png";
+import { useUserInfo } from "../../contexts";
 
 export const Dress = () => {
+  const guest = useUserInfo();
   return (
     <SectionContainer>
       <Paper>
@@ -10,8 +12,8 @@ export const Dress = () => {
       </Paper>
 
       <Typography variant="h5" align="center">
-        Для нас главное - Ваше присуцтвие! Но мы будем рады, если в своих
-        нарядах вы поддержите цветовую гамму нашей свадьбы
+        {`Для нас главное - ${guest.family ? "ваше" : guest.sex === "male" ? "твое" : "твое"} присуцтвие! Но мы будем рады, если в своих
+        нарядах ${guest.family ? "вы поддержите" : guest.sex === "male" ? "ты поддержишь" : "ты поддержишь"} цветовую гамму нашей свадьбы`}
       </Typography>
     </SectionContainer>
   );

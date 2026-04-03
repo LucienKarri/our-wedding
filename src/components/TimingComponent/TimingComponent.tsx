@@ -4,8 +4,10 @@ import cake from "../../assets/cake.png";
 import start from "../../assets/start.png";
 import rings from "../../assets/rings.png";
 import end from "../../assets/end.png";
+import { useUserInfo } from "../../contexts";
 
 export const TimingComponent = () => {
+  const guest = useUserInfo();
   return (
     <SectionContainer>
       <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
@@ -68,8 +70,8 @@ export const TimingComponent = () => {
         </Box>
       </Box>
       <Typography variant="h5" align="center">
-        Мы не хотим обременять вас выбором подарка, поэтому будем рады подаркам
-        в конвертах
+        {`Мы не хотим обременять ${guest.family ? "вас" : guest.sex === "male" ? "тебя" : "тебя"} выбором подарка, поэтому будем рады подарку
+        в конверте`}
       </Typography>
     </SectionContainer>
   );
