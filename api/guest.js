@@ -1,6 +1,7 @@
-import guests from "../data/guests.json";
+import guests from "../data/guests.js";
 
 export async function GET(request) {
+  console.log("ddd");
   const { searchParams } = new URL(request.url);
   const token = searchParams.get("token");
 

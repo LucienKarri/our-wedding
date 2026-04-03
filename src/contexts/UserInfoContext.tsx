@@ -1,3 +1,4 @@
+import { Box, CircularProgress } from "@mui/material";
 import {
   createContext,
   useContext,
@@ -36,9 +37,7 @@ export const UserInfoProvider: FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     async function loadGuest() {
-      const res = await fetch(
-        `/api/invite-data?token=${searchParams.get("token")}`,
-      );
+      const res = await fetch(`/api/guest?token=${searchParams.get("token")}`);
       const data = await res.json();
 
       if (!res.ok) {
@@ -50,6 +49,14 @@ export const UserInfoProvider: FC<PropsWithChildren> = ({ children }) => {
     }
     loadGuest();
   }, [searchParams]);
+
+  if (!data) {
+    return (
+      <Box sx={{ display: "flex" }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <UserInfoContext.Provider value={data}>{children}</UserInfoContext.Provider>
