@@ -1,5 +1,6 @@
 import { Button, Paper, Typography } from "@mui/material";
 import { SectionContainer } from "../SectionContainer";
+import placeImg from "../../assets/place.jpg";
 
 export const LocationComponent = () => {
   return (
@@ -9,7 +10,7 @@ export const LocationComponent = () => {
       </Typography>
       <Paper>
         <img
-          src="/src/assets/place.jpg"
+          src={placeImg}
           style={{ display: "block", borderRadius: "4px", maxWidth: "100%" }}
         />
       </Paper>

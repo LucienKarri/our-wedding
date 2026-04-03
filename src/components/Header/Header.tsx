@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { SectionContainer } from "../SectionContainer";
+import ourPhotoImg from "../../assets/our-photo.png";
 
 export const Header = () => {
   return (
@@ -10,7 +11,7 @@ export const Header = () => {
       </Typography>
       <Box>
         <img
-          src="/src/assets/our-photo.png"
+          src={ourPhotoImg}
           style={{
             width: "100%",
             filter:

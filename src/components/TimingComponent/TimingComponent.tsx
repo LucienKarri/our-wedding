@@ -1,12 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import { SectionContainer } from "../SectionContainer";
+import cake from "../../assets/cake.png";
+import start from "../../assets/start.png";
+import rings from "../../assets/rings.png";
+import end from "../../assets/end.png";
 
 export const TimingComponent = () => {
   return (
     <SectionContainer>
       <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <Box sx={{ width: "50%" }}>
-          <img src="/src/assets/start.png" style={{ width: "100%" }} />
+          <img src={start} style={{ width: "100%" }} />
         </Box>
         <Box sx={{ width: "50%", padding: "12px" }}>
           <Typography variant="h4" color="primary">
@@ -30,13 +34,13 @@ export const TimingComponent = () => {
           <Typography variant="h5">выездная церемония</Typography>
         </Box>
         <Box sx={{ width: "50%" }}>
-          <img src="/src/assets/rings.png" style={{ width: "100%" }} />
+          <img src={rings} style={{ width: "100%" }} />
         </Box>
       </Box>
 
       <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <Box sx={{ width: "50%" }}>
-          <img src="/src/assets/cake.png" style={{ width: "100%" }} />
+          <img src={cake} style={{ width: "100%" }} />
         </Box>
         <Box sx={{ width: "50%", padding: "12px" }}>
           <Typography variant="h4" color="primary">
@@ -60,7 +64,7 @@ export const TimingComponent = () => {
           <Typography variant="h5">окончание вечера</Typography>
         </Box>
         <Box sx={{ width: "50%" }}>
-          <img src="/src/assets/end.png" style={{ width: "100%" }} />
+          <img src={end} style={{ width: "100%" }} />
         </Box>
       </Box>
       <Typography variant="h5" align="center">
