@@ -24,10 +24,7 @@ export const useUserInfo = () => {
 };
 
 export const UserInfoProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [searchParams] = useSearchParams({
-    name: "Карина и Дима",
-    family: "true",
-  });
+  const [searchParams] = useSearchParams();
 
   const value: {
     name: string;
