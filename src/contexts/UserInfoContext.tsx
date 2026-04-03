@@ -1,6 +1,8 @@
 import {
   createContext,
   useContext,
+  useEffect,
+  useState,
   type FC,
   type PropsWithChildren,
 } from "react";
@@ -26,19 +28,30 @@ export const useUserInfo = () => {
 export const UserInfoProvider: FC<PropsWithChildren> = ({ children }) => {
   const [searchParams] = useSearchParams();
 
-  const value: {
+  const [data, setData] = useState<{
     name: string;
     sex: string | null;
     family: string;
-  } = {
-    name: searchParams.get("name") || "",
-    sex: searchParams.get("sex") || null,
-    family: searchParams.get("family") || "",
-  };
+  } | null>(null);
+
+  useEffect(() => {
+    async function loadGuest() {
+      const res = await fetch(
+        `/api/invite-data?token=${searchParams.get("token")}`,
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Ошибка загрузки");
+      }
+
+      setData(data.guest);
+      return data.guest;
+    }
+    loadGuest();
+  }, [searchParams]);
 
   return (
-    <UserInfoContext.Provider value={value}>
-      {children}
-    </UserInfoContext.Provider>
+    <UserInfoContext.Provider value={data}>{children}</UserInfoContext.Provider>
   );
 };
