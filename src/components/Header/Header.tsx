@@ -10,7 +10,7 @@ export const Header = () => {
       </Typography>
       <Box>
         <img
-          src="src/assets/our-photo.png"
+          src="/src/assets/our-photo.png"
           style={{
             width: "100%",
             filter:

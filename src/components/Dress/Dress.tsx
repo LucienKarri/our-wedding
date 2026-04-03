@@ -6,7 +6,7 @@ export const Dress = () => {
     <SectionContainer>
       <Paper>
         <img
-          src="src/assets/palette.png"
+          src="/src/assets/palette.png"
           style={{ width: "100%", padding: "24px" }}
         />
       </Paper>

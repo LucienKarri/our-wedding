@@ -9,7 +9,7 @@ export const LocationComponent = () => {
       </Typography>
       <Paper>
         <img
-          src="src/assets/place.jpg"
+          src="/src/assets/place.jpg"
           style={{ display: "block", borderRadius: "4px", maxWidth: "100%" }}
         />
       </Paper>
