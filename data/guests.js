@@ -1,7 +1,7 @@
 export default [
   {
     pozivnoy: "korovka",
-    name: "Папа и Татьяна",
+    name: "Константин и Татьяна",
     family: "true",
     sex: "",
   },
