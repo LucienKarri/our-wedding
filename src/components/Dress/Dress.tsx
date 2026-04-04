@@ -1,13 +1,20 @@
-import { Paper, Typography } from "@mui/material";
+import { Paper, Typography, useTheme } from "@mui/material";
 import { SectionContainer } from "../SectionContainer";
 import paletteImg from "../../assets/palette.png";
 import { useUserInfo } from "../../contexts";
 
 export const Dress = () => {
   const guest = useUserInfo();
+  const theme = useTheme();
   return (
     <SectionContainer>
-      <Paper>
+      <Paper
+        sx={{
+          [theme.breakpoints.up("md")]: {
+            width: "60%",
+          },
+        }}
+      >
         <img src={paletteImg} style={{ width: "100%", padding: "24px" }} />
       </Paper>
 

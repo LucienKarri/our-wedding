@@ -1,15 +1,22 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 import { SectionContainer } from "../SectionContainer";
 import ourPhotoImg from "../../assets/our-photo.png";
 
 export const Header = () => {
+  const theme = useTheme();
   return (
     <SectionContainer>
       <Typography variant="h5">наконец-то</Typography>
       <Typography color="primary" variant="h4">
         МЫ ЖЕНИМСЯ
       </Typography>
-      <Box>
+      <Box
+        sx={{
+          [theme.breakpoints.up("md")]: {
+            width: "60%",
+          },
+        }}
+      >
         <img
           src={ourPhotoImg}
           style={{
