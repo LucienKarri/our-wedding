@@ -173,4 +173,16 @@ export default [
     family: "true",
     sex: "",
   },
+  {
+    pozivnoy: "pastila",
+    name: "Наталья и Арина",
+    family: "true",
+    sex: "",
+  },
+  {
+    pozivnoy: "korzhik",
+    name: "Михаил и Татьяна",
+    family: "true",
+    sex: "",
+  },
 ];
