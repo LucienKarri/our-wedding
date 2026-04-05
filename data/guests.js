@@ -185,4 +185,16 @@ export default [
     family: "true",
     sex: "",
   },
+  {
+    pozivnoy: "buratino",
+    name: "Никита и Дарья",
+    family: "true",
+    sex: "",
+  },
+  {
+    pozivnoy: "detskiy_surpriz",
+    name: "Евгений",
+    family: "false",
+    sex: "male",
+  },
 ];
