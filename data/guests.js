@@ -197,4 +197,10 @@ export default [
     family: "false",
     sex: "male",
   },
+  {
+    pozivnoy: "umka",
+    name: "Сергей, Алена, Никита, Максим и Елизавета",
+    family: "true",
+    sex: "male",
+  },
 ];
